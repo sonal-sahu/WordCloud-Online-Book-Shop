@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ultra Corporation</title>
+	<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($){
+
+			/*to show bubble effect*/
+			var bArray = [];	    
+			var sArray = [4,6,8,10];	 	    
+			for (var i = 0; i < $('.bubbles').width(); i++) {
+				bArray.push(i);
+			}
+
+			function randomValue(arr) {
+				return arr[Math.floor(Math.random() * arr.length)];
+			}
+
+			setInterval(function(){
+
+				var size = randomValue(sArray);
+				$('.bubbles').append('<div class="individual-bubble" style="left: ' + randomValue(bArray) + 'px; width: ' + size + 'px; height:' + size + 'px;"></div>');
+
+				$('.individual-bubble').animate({
+					'bottom': '100%',
+					'opacity' : '-=0.7'
+				}, 3000, function(){
+					$(this).remove()
+				}
+				);
+
+
+			}, 350);
+
+		});
+	</script>
+	<style type="text/css">
+		
+		body{
+				font-family:"Helvetica";
+				width: 100%;
+				margin:auto;
+				padding: 0;
+			}
+
+			#maincontainer{
+				width: 100%;
+				height: 100%;
+				margin:auto;
+			}
+
+			/*Define header section*/
+			.header {
+				width: 100%;
+				top: 0;
+				margin:0 auto;
+				position: fixed;
+				background: linear-gradient(132deg, #ec5218, #1665c1);
+				background-size: 400% 400%;
+				animation: backgroundgradient 30s ease infinite;
+			}
+
+			@keyframes backgroundgradient{
+				0% {background-position: 0% 50%;}
+				50% {background-position: 100% 50%;}
+				100% {background-position: 0% 50%;}
+
+			}
+			/*Bubble effect*/
+			.header-outer {
+				display: table;
+				width: 100%;
+				float: left;
+			}
+
+			.header-inner {
+				display: table-cell;
+				top: 0%;
+				vertical-align: middle;
+				text-align: center;
+
+			}
+			/*CSS for giving effect*/
+			.bubbles {
+				display: inline-block;
+				font-family: arial;
+				position: relative;
+			}
+
+			.bubbles h1 {
+				position: relative;
+				font-size: 3em;
+				margin: 1em 0 0;
+				font-family: 'Luckiest Guy', cursive;
+				color: #fff;
+				z-index: 2;
+			}
+
+			.individual-bubble {
+				position: absolute;
+				border-radius: 100%;
+				bottom: 10px;
+				background-color: #fff;
+				z-index: 1;
+			}
+
+			.top-section{
+				width: 100%;
+				float: left;
+				padding-top: 28px;
+			}
+
+			.topnav{
+				width: 100%;
+				float: left;
+				padding-top: 77px;
+			}
+
+			.topnav {
+				background-color: #708090;
+				box-shadow: 0px 2px 4px gray;	
+				overflow: hidden;
+			}
+
+			.topnav a {
+				float: left;
+				display: block;
+				color: #f2f2f2;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+				font-size: 17px;
+				text-transform: uppercase;
+			}
+
+			.topnav a:hover {
+				background-color: #ddd;
+				color: black;
+			}
+
+			 .active {
+				background-color: #1665c1;
+				color: white;
+			}
+
+			.topnav .icon {
+				display: none;
+			}
+
+			.topnav a i{
+				padding-right: 10px;
+			}
+
+			@media screen and (max-width: 700px) {
+				.topnav a:not(:first-child) {
+					display: none;
+				}
+				.topnav a.icon {
+					float: right;
+					display: block;
+				}
+				.topnav.responsive {
+					position: relative;
+				}
+				.topnav.responsive a.icon {
+					position: absolute;
+					right: 0;
+					top: 0;
+				}
+				.topnav.responsive a {
+					float: none;
+					display: block;
+					text-align: left;
+				}
+			}
+			.main-section{
+				padding-top: 20px;
+    				width:85%;
+    				margin:0 auto;
+    				clear:both;
+    				margin: 0 auto;
+    				padding:40px;
+			}
+			.continue-shopping-btn{
+				color: white;
+    				padding: 8px 12px;
+    				cursor: pointer;
+    				border-radius: 4px;
+    				text-align: center;
+    				border:0;
+    				line-height: 18px;
+    				text-decoration: none;
+    				font-weight: bold;
+    				white-space: nowrap;
+    				transition: all 0.1s ease-in-out;
+    				background: rgb(59,103,158); 
+    				background: -moz-linear-gradient(top, rgba(59,103,158,1) 0%, rgba(32,124,202,1) 45%, rgba(32,124,202,1) 45%, rgba(43,136,217,1) 50%, rgba(125,185,232,1) 100%); 
+    				background: -webkit-linear-gradient(top, rgba(59,103,158,1) 0%,rgba(32,124,202,1) 45%,rgba(32,124,202,1) 45%,rgba(43,136,217,1) 50%,rgba(125,185,232,1) 100%); 
+    				background: linear-gradient(to bottom, rgba(59,103,158,1) 0%,rgba(32,124,202,1) 45%,rgba(32,124,202,1) 45%,rgba(43,136,217,1) 50%,rgba(125,185,232,1) 100%); 
+    				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=0 ); 
+
+			}
+
+			.continue-shopping-btn:hover{
+				color: black;
+				background-color:#1665c1 ;
+					background: rgb(59,103,158); 
+    				background: -moz-linear-gradient(bottom, rgba(59,103,158,1) 0%, rgba(32,124,202,1) 45%, rgba(32,124,202,1) 45%, rgba(43,136,217,1) 50%, rgba(125,185,232,1) 100%);
+    				background: -webkit-linear-gradient(bottom, rgba(59,103,158,1) 0%,rgba(32,124,202,1) 45%,rgba(32,124,202,1) 45%,rgba(43,136,217,1) 50%,rgba(125,185,232,1) 100%); 
+    				background: linear-gradient(to top, rgba(59,103,158,1) 0%,rgba(32,124,202,1) 45%,rgba(32,124,202,1) 45%,rgba(43,136,217,1) 50%,rgba(125,185,232,1) 100%); 
+    				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#3b679e',GradientType=0 ); 
+			}
+
+			footer{
+    				clear: both;
+    				margin:0 auto;
+    				text-align: center;
+    				width: 100%;
+    				height: 10%;
+    				padding-top: 16px;
+    				border-top: 1px solid black;
+    				margin-top: 25px;
+    				box-sizing: border-box;
+    				background-color: black;
+    				color: white;
+    				margin-top:15.5%; 
+    			}
+
+	</style>
+	</head>
+<body>
+	
+	<div id="maincontainer">
+		<div class="header">
+    				<div class="header-outer">
+    					<div class="header-inner">
+    						<div class="bubbles">
+    							<h1>WORDCLOUD</h1>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+
+    				<section class="top-section">
+    				<div class="topnav" id="myTopnav">
+    					<a href="index1.html" ><i class="fa fa-home"></i>Home</a>
+    					<a href="#aboutus"<i class="fa fa-user"></i>About</a>
+    					<a href="#shopping-header"><i class="fa fa-cog"></i>Services</a>
+    					<a href="mycart.html" class="active"><i class="fa fa-shopping-cart"></i>My Cart</a>
+    					<a href="#"><i class="fa fa-phone"></i>Contact</a>
+    					<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    						<i class="fa fa-bars"></i>
+    					</a>
+    				</div>
+    			</section>
+
+    			<section class="main-section">
+    				<h2 id="shopping-header" style="color: #1665c1">Your Shopping cart</h2>
+    				<div class="empty-cart-div">
+	    				<p>
+	    					Your cart is under process.
+	    				</p>
+	    				<button id="continue-shopping" class="continue-shopping-btn" onclick="continueshopping()">CONTINUE SHOPPING</button>
+    				</div>
+    				<div class="container">
+    					
+
+
+    				</div>
+
+    			</section>
+    			<footer>
+    				Copyright &copy; 2018 Sonal Sahu
+    			</footer>
+
+
+
+	</div>
+	<script type="text/javascript">
+		function continueshopping()
+		{
+			window.location.href="index1.html"
+		}
+
+	function myFunction() {
+				var x = document.getElementById("myTopnav");
+				if (x.className === "topnav") {
+					x.className += " responsive";
+				} else {
+					x.className = "topnav";
+				}
+			}
+
+	</script>
+</body>
+</html>

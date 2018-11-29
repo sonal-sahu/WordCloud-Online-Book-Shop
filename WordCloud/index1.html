@@ -1,0 +1,560 @@
+<! DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ultra Corporation</title>
+	<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($){
+
+			/*to show bubble effect*/
+			var bArray = [];	    
+			var sArray = [4,6,8,10];	 	    
+			for (var i = 0; i < $('.bubbles').width(); i++) {
+				bArray.push(i);
+			}
+
+			function randomValue(arr) {
+				return arr[Math.floor(Math.random() * arr.length)];
+			}
+
+			setInterval(function(){
+
+				var size = randomValue(sArray);
+				$('.bubbles').append('<div class="individual-bubble" style="left: ' + randomValue(bArray) + 'px; width: ' + size + 'px; height:' + size + 'px;"></div>');
+
+				$('.individual-bubble').animate({
+					'bottom': '100%',
+					'opacity' : '-=0.7'
+				}, 3000, function(){
+					$(this).remove()
+				}
+				);
+
+
+			}, 350);
+
+		});
+	</script>
+
+	<style type="text/css">
+	
+			body{
+				font-family:"Helvetica";
+				width: 100%;
+				margin:auto;
+				padding: 0;
+			}
+
+			#maincontainer{
+				width: 100%;
+				height: 100%;
+				margin:auto;
+			}
+			/*Define header section*/
+			.header {
+				width: 100%;
+				top: 0;
+				margin:0 auto;
+				position: fixed;
+				background: linear-gradient(132deg, #ec5218, #1665c1);
+				background-size: 400% 400%;
+				animation: backgroundgradient 30s ease infinite;
+			}
+
+			@keyframes backgroundgradient{
+				0% {background-position: 0% 50%;}
+				50% {background-position: 100% 50%;}
+				100% {background-position: 0% 50%;}
+
+			}
+			/*Bubble effect*/
+			.header-outer {
+				display: table;
+				width: 100%;
+				float: left;
+			}
+
+			.header-inner {
+				display: table-cell;
+				top: 0%;
+				vertical-align: middle;
+				text-align: center;
+
+			}
+			/*CSS for giving effect*/
+			.bubbles {
+				display: inline-block;
+				font-family: arial;
+				position: relative;
+			}
+
+			.bubbles h1 {
+				position: relative;
+				font-size: 3em;
+				margin: 1em 0 0;
+				font-family: 'Luckiest Guy', cursive;
+				color: #fff;
+				z-index: 2;
+			}
+
+			.individual-bubble {
+				position: absolute;
+				border-radius: 100%;
+				bottom: 10px;
+				background-color: #fff;
+				z-index: 1;
+			}
+
+			/*Navigation section*/
+			.top-section{
+				width: 100%;
+				float: left;
+				padding-top: 10px;
+			}
+
+			.topnav{
+				width: 100%;
+				float: left;
+				padding-top: 96px;
+				box-shadow: 0px 2px 4px gray;
+			}
+
+			.topnav {
+				background-color: #708090;
+				overflow: hidden;
+			}
+
+			.topnav a {
+				float: left;
+				display: block;
+				color: #f2f2f2;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+				font-size: 17px;
+				text-transform: uppercase;
+			}
+
+			.topnav a:hover {
+				background-color: #ddd;
+				color: black;
+			}
+
+			.active {
+				background-color: #1665c1;
+				color: white;
+			}
+
+			.topnav .icon {
+				display: none;
+			}
+
+			.topnav a i{
+				padding-right: 10px;
+			}
+
+			@media screen and (max-width: 700px) {
+				.topnav a:not(:first-child) {
+					display: none;
+				}
+				.topnav a.icon {
+					float: right;
+					display: block;
+				}
+				.topnav.responsive {
+					position: relative;
+				}
+				.topnav.responsive a.icon {
+					position: absolute;
+					right: 0;
+					top: 0;
+				}
+				.topnav.responsive a {
+					float: none;
+					display: block;
+					text-align: left;
+				}
+			}
+
+			/*Image Header*/
+			.imageHeader{
+				width: 100%;
+				height:60%; 
+				background-image: url("books.jpg");
+   				 background-size: cover;
+    			background-attachment: inherit;
+    			background-position: center;
+    			padding-top: 400px;
+    			box-shadow: 0px 2px 4px gray;
+    			
+    			}
+    		
+    			.main-section{
+    				padding-top: 20px;
+    				width:85%;
+    				margin:0 auto;
+    				clear:both;
+    				margin: 0 auto;
+    				padding:40px;
+    			}
+
+    			.container{
+
+    				display: grid;
+    				grid-template-columns:1fr 1fr 1fr;
+    				grid-gap: 20px;
+    				align-items: center;
+
+    			}
+
+    			.column{
+    				margin: auto;
+    				text-align: center;
+    				border-radius: 4px;
+    				border:2px solid #e7e7e7;
+    				box-shadow:0px 3px 2px 3px #e7e7e7;
+    				-webkit-transition: all 0.3s ease;
+    				-moz-transition: all 0.3s ease;
+    				transition: all 0.3s ease;
+
+    			}
+
+    			.col1,.col2,.col3{
+    				padding: 1px;
+    			}
+
+    			.shop-container{
+    				display: grid;
+    				grid-template-columns:1fr 1fr 1fr;
+    				grid-auto-rows: minmax(300px,auto);
+    				grid-column-gap:  30px;
+    				grid-row-gap: 20px;
+    				padding-top: 20px;
+    				align-items: center;
+    				font-family: "gibson",sans-serif
+
+    			}
+
+    			.shop-column{
+    				margin: auto;
+    				text-align: center;
+    				border-radius: 4px;
+    				padding-top: 20px;
+    				padding-bottom: 20px;
+    				width: 250px;
+    				border:2px solid #e7e7e7;
+    				box-shadow:0px 3px 2px 3px #e7e7e7;
+    				-webkit-transition: all 0.3s ease;
+    				-moz-transition: all 0.3s ease;
+    				transition: all 0.3s ease;
+    			}
+
+    			.shop-column h5{
+    				color:#666;
+    			}
+
+    			.price{
+
+    				line-height: 48px;
+    				letter-spacing: 1px;
+    			}
+
+    			s{
+    				margin-right: 5px;
+    				color: red;
+    				text-decoration-line: line-through;
+    				text-decoration-color: red;
+
+    			}
+    			/*Add Cart Button*/
+    			.add-cart-btn{
+    				color: white;
+    				padding: 8px 12px;
+    				cursor: pointer;
+    				border-radius: 4px;
+    				text-align: center;
+    				border:0;
+    				line-height: 18px;
+    				text-decoration: none;
+    				font-weight: bold;
+    				white-space: nowrap;
+    				transition: all 0.1s ease-in-out;
+    				background: rgb(59,103,158); 
+    				background: -moz-linear-gradient(top, rgba(59,103,158,1) 0%, rgba(32,124,202,1) 45%, rgba(32,124,202,1) 45%, rgba(43,136,217,1) 50%, rgba(125,185,232,1) 100%); 
+    				background: -webkit-linear-gradient(top, rgba(59,103,158,1) 0%,rgba(32,124,202,1) 45%,rgba(32,124,202,1) 45%,rgba(43,136,217,1) 50%,rgba(125,185,232,1) 100%); 
+    				background: linear-gradient(to bottom, rgba(59,103,158,1) 0%,rgba(32,124,202,1) 45%,rgba(32,124,202,1) 45%,rgba(43,136,217,1) 50%,rgba(125,185,232,1) 100%); 
+    				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=0 ); 
+    			}
+
+    			.add-cart-btn:hover{
+    				color: black;
+    				background-color:#1665c1 ;
+					background: rgb(59,103,158); 
+    				background: -moz-linear-gradient(bottom, rgba(59,103,158,1) 0%, rgba(32,124,202,1) 45%, rgba(32,124,202,1) 45%, rgba(43,136,217,1) 50%, rgba(125,185,232,1) 100%);
+    				background: -webkit-linear-gradient(bottom, rgba(59,103,158,1) 0%,rgba(32,124,202,1) 45%,rgba(32,124,202,1) 45%,rgba(43,136,217,1) 50%,rgba(125,185,232,1) 100%); 
+    				background: linear-gradient(to top, rgba(59,103,158,1) 0%,rgba(32,124,202,1) 45%,rgba(32,124,202,1) 45%,rgba(43,136,217,1) 50%,rgba(125,185,232,1) 100%); 
+    				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#3b679e',GradientType=0 ); 
+    			}
+
+    			hr{
+    				margin-bottom:0px;
+    				margin-top:30px;
+    				border:0;
+    				border-top: 1px solid #eee;
+    			}
+
+    			footer{
+    				clear: both;
+    				margin:0 auto;
+    				text-align: center;
+    				width: 100%;
+    				height: 10%;
+    				padding-top: 16px;
+    				border-top: 1px solid black;
+    				margin-top: 25px;
+    				box-sizing: border-box;
+    				background-color: black;
+    				color: white;
+    			}
+
+    			@media (max-width: 400px)
+    			{
+    				div.container{
+    					display: block;
+    					grid-template-columns: 1fr;
+    					grid-row-gap: 100px;
+    					margin:auto;
+    					padding-top: 10px;
+    				}
+    				.imageHeader{
+    					width:100%;
+    				}
+
+    				div.shop-container{
+    					display: block;
+    					grid-template-columns: 1fr;
+    				}
+
+    			}
+
+    			@media (max-width: 768px){
+
+    				div.container{
+    					display: block;
+    					grid-template-columns: 1fr 1fr;
+    					grid-row-gap: 100px;
+    				}
+
+    				div.shop-container{
+    					display: block;
+    					grid-template-columns: 1fr 1fr;
+    				}
+
+    			}
+
+
+    		</style>
+
+    	</head>
+    	<body>
+    		<div id="maincontainer">
+    			<div class="header">
+    				<div class="header-outer">
+    					<div class="header-inner">
+    						<div class="bubbles">
+    							<h1>WORDCLOUD</h1>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    			<section class="top-section">
+    				<div class="topnav" id="myTopnav">
+    					<a href="index1.html" class="active"><i class="fa fa-home"></i>Home</a>
+    					<a href="#aboutus"<i class="fa fa-user"></i>About</a>
+    					<a href="#shopping-header"><i class="fa fa-cog"></i>Services</a>
+    					<a href="mycart.html"><i class="fa fa-shopping-cart"></i>My Cart</a>
+    					<a href="#"><i class="fa fa-phone"></i>Contact</a>
+    					<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    						<i class="fa fa-bars"></i>
+    					</a>
+    				</div>
+    			</section>
+
+
+				<div class="imageHeader">
+
+				</div>
+
+				<section class="main-section section-1">
+					<div class="container">
+						<div id="col1" class="column col1">
+							<img src="https://bab-assets1.babapi.ooo/img/html_widget_images/1341200/c113213b6231f_imgnewarrivalss.jpg.999xx.jpg" width="80%" alt="New Arrivals" />
+
+						</div>
+						<div id="col2" class="column col2">
+							<img src="https://bab-assets1.babapi.ooo/img/html_widget_images/1341200/c7baff94020e1_imgbestsellers.jpg.999xx.jpg" width="80%" alt="Best Sellers"/>
+						</div>
+						<div id="col3" class="column col3">
+							<img src="https://bab-assets1.babapi.ooo/img/html_widget_images/1341200/886bab7a1a6fd_imgrecommends.jpg.999xx.jpg" width="80%" alt="Recommendations"/>
+						</div>
+					</div>
+					<hr>
+				</section>
+
+				<section id="section-2" class="main-section">
+
+					<h2 id="shopping-header" style="color: #1665c1">Go Shopping</h2>
+					<div class="shop-container">
+						<div id="item1" class="shop-column" >
+							<img src="https://bab-assets3.babapi.ooo/img/book/1341200/02/c5/9789352779390.jpg.ccf51402c5.999x200x255.jpg" width="80%" alt="Let's talk money Book" />
+							
+							<h4>Let's talk money:You've worked hard for it</h4>
+							<h5>By Monika Halan</h5>
+							<div class="price">
+								<s>$24.00</s>$19.00
+							</div>
+							<button class="add-cart-btn" onclick="addItemToCart('item1','19.00')">ADD TO CART</button>
+
+						</div>
+						<div id="item2" class="shop-column">
+							<img src="https://bab-assets2.babapi.ooo/img/book/1341200/9a/46/9780670091355.jpg.9741cf9a46.999x200x255.jpg" width="80%" alt="The two minute revolution"/>
+							<h4>The Two-minute revolution:The Art of Growing Business</h4>
+							<h5>By Sangeeta Talwar</h5>
+							<div class="price">
+								<s>$22.99</s>$15.00
+							</div>
+							<button class="add-cart-btn" onclick="addItemToCart('item2','15.00')">ADD TO CART</button>
+						</div>
+						<div id="item3" class="shop-column">
+							<img src="https://bab-assets1.babapi.ooo/img/book/1341200/62/75/9780143445944.jpg.900f886275.999x200x255.jpg" width="80%" alt="Sacred Games"/>
+							<h4>Sacred Games</h4>
+							<h5>By Vikram Chandra</h5>
+							<div class="price">
+								<s>$40.99</s>$35.00
+							</div>
+							<button class="add-cart-btn" onclick="addItemToCart('item3','35.00')">ADD TO CART</button>
+						</div>
+
+						<div id="item4" class="shop-column">
+							<img src="https://bab-assets2.babapi.ooo/img/book/1341200/23/ce/9781780898407.jpg.2537bf23ce.999x200x255.jpg" width="80%" alt="The President is missing"/>
+							<h4>The President is missing</h4>
+							<h5>By President Bill Clinton</h5>
+							<div class="price">
+								<s>$28.99</s>$20.00
+							</div>
+							<button class="add-cart-btn" onclick="addItemToCart('item4','20.00')">ADD TO CART</button>
+						</div>
+
+
+						<div id="item5" class="shop-column">
+							<img src="https://bab-assets2.babapi.ooo/img/book/1341200/de/33/hodderstoughton.jpg.4b6758de33.999x200x250.jpg" width="80%" alt="The Outsider"/>
+							<h4>The Outsider</h4>
+							<h5>By Stephen King</h5>
+							<div class="price">
+								<s>$28.87</s>$19.99
+							</div>
+							<button class="add-cart-btn" onclick="addItemToCart('item5','19.99')">ADD TO CART</button>						    
+						</div>
+
+						<div id="item6"class="shop-column">
+							<img src="https://bab-assets1.babapi.ooo/img/book/1341200/22/ae/9781782393320.jpg.ef689e22ae.999x200x250.jpg" width="80%" alt="Crazy Rich Asians"/>
+							<h4>Crazy Rich Asians</h4>
+							<h5>By Kevin Kwan</h5>
+							<div class="price">
+								<s>$26.50</s>$16.00
+							</div>
+							<button class="add-cart-btn" onclick="addItemToCart('item6','16.00')">ADD TO CART</button>						    
+						</div>
+
+
+						<div id="item7"class="shop-column">
+							<img src="https://bab-assets1.babapi.ooo/img/book/1341200/30/99/9789386228970.jpg.a7b9253099.999x200x250.jpg" width="80%" alt="Pyjamas Are Forgiving"/>
+							<h4>Pyjamas Are Forgiving</h4>
+							<h5>By Twinkle Khanna</h5>
+							<div class="price">
+								<s>$28.99</s>$20.37
+							</div>
+							<button class="add-cart-btn" onclick="addItemToCart('item7','20.37')">ADD TO CART</button>						    
+						</div>
+
+						<div id="item8" class="shop-column">
+							<img src="https://bab-assets2.babapi.ooo/img/book/1341200/91/43/3.jpg.cbfdaf9143.999x200x250.jpg" width="80%" alt="Sea Prayer"/>
+							<h4>Sea Prayer</h4>
+							<h5>By Khaled Hosseini</h5>
+							<div class="price">
+								<s>$21.99</s>$16.89
+							</div>
+							<button class="add-cart-btn" onclick="addItemToCart('item8','16.89')">ADD TO CART</button>						    
+						</div>
+
+						<div id="item9" class="shop-column">
+							<img src="https://bab-assets1.babapi.ooo/img/book/1341200/35/ed/9781529000832.jpg.76cec835ed.999x200x250.jpg" width="80%" alt="A higher loyalty"/>
+							<h4>A higher loyalty,truth,lies and leadership</h4>
+							<h5>By James Comey</h5>
+							<div class="price">
+								<s>$29.99</s>$21.78
+							</div>
+							<button class="add-cart-btn" onclick="addItemToCart('item9','21.78')">ADD TO CART</button>						    
+						</div>
+
+					</div>
+					<hr>
+				</section>
+				<section id="aboutus" class="main-section class="active"">
+					<div class="about-us-div">
+						
+						<h2 style="color: #1665c1">About</h2>
+						<p style="font-family:cursive;">At wordcloud, every type of reader can satisfy one-of-a-kind book cravings. Whether your personal passions lean toward new releases by the hottest authors or classics from the old masters, you will find it on Alibris. We have the biggest bestsellers to the hardest-to-find, out-of-print rarities brought to you by thousands of Booksellers around the world. Alibris is where your page-turning prayers will be answered at amazingly low prices. So look around and let wordcloud help you find your next favorite book.</p>
+
+					</div>
+
+				</section>
+
+				<footer>
+					Copyright &copy; 2018 Sonal Sahu
+				</footer>
+
+		</div>
+
+		<script type="text/javascript">
+			var cart=[];
+			var count=0;
+
+			var Item=function(id,price)
+			{
+				this.id=id;
+				this.price=price;
+			}
+
+			function addItemToCart(id,price) {
+
+				
+				var item=new Item(id,price);
+				cart.push(item);
+				for(var i in cart)
+				{
+					count++;
+				}
+				
+				console.log(cart.length);
+				alert('Your item has been succesfully added to cart');
+
+			}
+
+			function myFunction() {
+				var x = document.getElementById("myTopnav");
+				if (x.className === "topnav") {
+					x.className += " responsive";
+				} else {
+					x.className = "topnav";
+				}
+			}
+		</script>
+	</body>
+
+
+	</html>
